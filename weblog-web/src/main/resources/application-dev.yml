@@ -1,0 +1,33 @@
+spring:
+  datasource:
+    driver-class-name: com.p6spy.engine.spy.P6SpyDriver
+    url: jdbc:p6spy:mysql://127.0.0.1:3306/weblog?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&useSSL=false&zeroDateTimeBehavior=convertToNull
+    username: root
+    password: 123456
+    hikari:
+      minimum-idle: 5
+      maximum-pool-size: 20
+      auto-commit: true
+      idle-timeout: 30000
+      pool-name: Weblog-HikariCP
+      max-lifetime: 1800000
+      connection-timeout: 30000
+      connection-test-query: SELECT 1
+  security:
+    user:
+      name: admin # 登录用户名
+      password: 123456 # 登录密码
+#spring.datasource.driver-class-name: 指定数据库驱动类的完整类名，这里使用的是 MySQL 数据库的驱动类。
+#spring.datasource.url: 数据库连接的URL，指向本地的MySQL数据库，端口是3306，数据库名是weblog，同时配置了一系列参数，如使用Unicode编码、字符编码为UTF-8、自动重连、不使用SSL、对零时间进行转换等。
+#spring.datasource.username: 数据库用户名，这里使用的是root。
+#spring.datasource.password: 数据库密码，这里使用的是123456。
+#  数据库链接池这块，我们使用的 Spring Boot 默认的 HikariCP，它是一个高性能的连接池实现 , 同时，它号称是速度最快的连接池：
+#
+#spring.datasource.hikari.minimum-idle: Hikari连接池中最小空闲连接数。
+#spring.datasource.hikari.maximum-pool-size: Hikari连接池中允许的最大连接数。
+#spring.datasource.hikari.auto-commit: 连接是否自动提交事务。
+#spring.datasource.hikari.idle-timeout: 连接在连接池中闲置的最长时间，超过这个时间会被释放。
+#spring.datasource.hikari.pool-name: 连接池的名字。
+#spring.datasource.hikari.max-lifetime: 连接在连接池中的最大存活时间，超过这个时间会被强制关闭。
+#spring.datasource.hikari.connection-timeout: 获取连接的超时时间。
+#spring.datasource.hikari.connection-test-query: 用于测试连接是否可用的SQL查询，这里使用的是SELECT 1，表示执行这个查询来测试连接。
