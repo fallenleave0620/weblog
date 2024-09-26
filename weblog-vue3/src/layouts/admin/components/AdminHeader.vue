@@ -89,6 +89,7 @@ import { useMenuStore } from '@/stores/menu'
 // 引入 useFullscreen
 import { useFullscreen } from '@vueuse/core'
 import { useRouter } from 'vue-router'
+import { updateAdminPassword } from '@/api/admin/user'
 // 引入了菜单 store
 const menuStore = useMenuStore()
 //isFullscreen是一个布尔值
@@ -197,12 +198,12 @@ const onSubmit = () => {
 }
 // 监听 Pinia store 中的某个值的变化
 watch(() => userStore.userInfo.username, (newValue, oldValue) => {
-      // 在这里处理变化后的值
-      console.log('新值:', newValue);
-      console.log('旧值:', oldValue);
-      
-      // 可以在这里执行任何你需要的逻辑
-      // 重新将新的值，设置会 form 对象中
-      form.username = newValue
+    // 在这里处理变化后的值
+    console.log('新值:', newValue);
+    console.log('旧值:', oldValue);
+
+    // 可以在这里执行任何你需要的逻辑
+    // 重新将新的值，设置会 form 对象中
+    form.username = newValue
 });
 </script>
