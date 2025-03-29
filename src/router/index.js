@@ -6,8 +6,14 @@ import AdminIndex from '@/pages/admin/index.vue'
 import AdminArticleList from '@/pages/admin/article-list.vue'
 import AdminCategoryList from '@/pages/admin/category-list.vue'
 import AdminTagList from '@/pages/admin/tag-list.vue'
-import AdminBlogSetting from '@/pages/admin/blog-setting.vue'
-
+import AdminBlogSettings from '@/pages/admin/blog-settings.vue'
+import ArchiveList from '@/pages/frontend/archive-list.vue'
+import CategoryList from '@/pages/frontend/category-list.vue'
+import TagList from '@/pages/frontend/tag-list.vue'
+import CategoryArticleList from '@/pages/frontend/category-article-list.vue'
+import TagArticleList from '@/pages/frontend/tag-article-list.vue'
+import ArticleDetail from '@/pages/frontend/article-detail.vue'
+import NotFound from '@/pages/frontend/404.vue'
 // 统一在这里声明所有路由
 const routes = [
     {
@@ -22,6 +28,56 @@ const routes = [
         component: Login,
         meta: {
             title: 'Weblog 登录页'
+        }
+    },
+    {
+        path: '/archive/list', // 归档页
+        component: ArchiveList,
+        meta: { // meta 信息
+            title: 'Weblog 归档页'
+        }
+    },
+    {
+        path: '/category/list', // 分类页
+        component: CategoryList,
+        meta: { // meta 信息
+            title: 'Weblog 分类页'
+        }
+    },
+    {
+        path: '/tag/list', // 标签页
+        component: TagList,
+        meta: { // meta 信息
+            title: 'Weblog 标签页'
+        }
+    },
+    {
+        path: '/category/article/list', // 分类文章页
+        component: CategoryArticleList,
+        meta: { // meta 信息
+            title: 'Weblog 分类文章页'
+        }
+    },
+    {
+        path: '/tag/article/list', // 标签列表页
+        component: TagArticleList,
+        meta: { // meta 信息
+            title: 'Weblog 标签文章页'
+        }
+    },
+    {
+        path: '/article/:articleId', // 文章详情页
+        component: ArticleDetail,
+        meta: { // meta 信息
+            title: 'Weblog 详情页'
+        }
+    },
+    {
+        path: '/:pathMatch(.*)*',
+        name: 'NotFound',
+        component: NotFound,
+        meta: {
+            title: '404 页'
         }
     },
     {
@@ -58,14 +114,14 @@ const routes = [
                 }
             },
             {
-                path: "/admin/blog/setting",
-                component: AdminBlogSetting,
+                path: "/admin/blog/settings",
+                component: AdminBlogSettings,
                 meta: {
                     title: '博客设置'
                 }
             },
         ]
-        
+
     }
 ]
 
@@ -75,6 +131,10 @@ const router = createRouter({
     history: createWebHashHistory(),
     // routes: routes 的缩写
     routes,
+    // 每次切换路由后，页面滚动到顶部
+    scrollBehavior() {
+        return { top: 0 }
+    }
 })
 
 // ES6 模块导出语句，它用于将 router 对象导出，以便其他文件可以导入和使用这个对象

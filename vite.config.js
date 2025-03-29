@@ -26,11 +26,12 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'http://localhost:8080',
+        target: 'http://localhost:10888',
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, ''),
       },
-    }
+    },
+    // port: 10999,
   }
 //   server：这是一个配置对象，通常用于定义服务器的行为。
 // proxy：这是 http-proxy-middleware 的配置对象，用于定义代理规则。
