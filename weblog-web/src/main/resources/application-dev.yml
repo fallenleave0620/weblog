@@ -31,3 +31,16 @@ spring:
 #spring.datasource.hikari.max-lifetime: 连接在连接池中的最大存活时间，超过这个时间会被强制关闭。
 #spring.datasource.hikari.connection-timeout: 获取连接的超时时间。
 #spring.datasource.hikari.connection-test-query: 用于测试连接是否可用的SQL查询，这里使用的是SELECT 1，表示执行这个查询来测试连接。
+#=================================================================
+# minio
+#=================================================================
+minio:
+  endpoint: http://127.0.0.1:9000
+  accessKey: hexiaoyu
+  secretKey: hexiaoyu
+  bucketName: weblog
+#=================================================================
+# Lucene 全文检索
+#=================================================================
+lucene:
+  indexDir: D:\\java_workspace\\lucene-index # lucene 索引存放的位置

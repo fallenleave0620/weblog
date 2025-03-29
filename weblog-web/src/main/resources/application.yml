@@ -2,6 +2,12 @@ spring:
   profiles:
     # 默认激活 dev 环境
     active: dev
+  servlet:
+    multipart:
+      max-file-size: 10MB # 限制单个上传文件的最大大小为 10MB。如果上传的文件大小超过这个值，将会被拒绝上传。
+      max-request-size: 10MB # 限制整个上传请求的最大大小为 10MB。这包括所有上传文件的大小之和。如果请求总大小超过这个值，将会被拒绝。
+server:
+  port: 10888 # 注意这里的冒号应为英文字符
 jwt:
   # 签发人
   issuer: quanxiaoha

@@ -6,7 +6,7 @@ logging:
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jjdbc:mysql://127.0.0.1:3306/weblog?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&useSSL=false&zeroDateTimeBehavior=convertToNull
+    url: jdbc:mysql://127.0.0.1:3306/weblog?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&useSSL=false&zeroDateTimeBehavior=convertToNull
     username: root
     password: 123456
     hikari:
@@ -18,3 +18,8 @@ spring:
       max-lifetime: 1800000
       connection-timeout: 30000
       connection-test-query: SELECT 1
+#=================================================================
+# Lucene 全文检索
+#=================================================================
+lucene:
+  indexDir: /app/weblog/lucene-index # lucene 索引存放的位置

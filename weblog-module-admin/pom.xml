@@ -15,6 +15,10 @@
     <description>weblog-admin (负责管理后台相关功能)</description>
 
     <dependencies>
+        <dependency>
+            <groupId>com.quanxiaoha</groupId>
+            <artifactId>weblog-module-search</artifactId>
+        </dependency>
         <!-- 免写冗余的 Java 样板式代码 -->
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -60,6 +64,18 @@
             <groupId>org.hibernate.validator</groupId>
             <artifactId>hibernate-validator</artifactId>
         </dependency>
+
+        <!-- 对象存储 Minio -->
+        <dependency>
+            <groupId>io.minio</groupId>
+            <artifactId>minio</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.mapstruct</groupId>
+            <artifactId>mapstruct</artifactId>
+        </dependency>
+
 
     </dependencies>
 
